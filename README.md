@@ -1,3 +1,1 @@
-# Tecnologías y aplicaciones móviles
-
-CURSO 2019
+# Tecnologías y Aplicaciones Móviles - Curso 2019
