@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ControlsBasics</string>
+    <string name="cancel">abbrechen</string>
+    <string name="save">speichern</string>
+    <string name="phone">Telefon</string>
+    <string name="name">Vorname</string>
+    <string name="email">E-Mail</string>
+</resources>
