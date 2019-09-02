@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ThemeStyleBasics</string>
+
+    <string name="settings_text_select_theme">Selecciona el Tema:</string>
+    <string name="settings_text_credentials">Credenciales</string>
+    <string name="settings_text_username_hint">Usuario</string>
+    <string name="settings_text_password_hint">Password</string>
+    <string name="settings_text_sync_automatically">Sync Automáticamente</string>
+    <string name="settings_text_location">Ubicación</string>
+    <string name="settings_text_state_on">On</string>
+    <string name="settings_text_state_off">Off</string>
+    <string name="settings_text_clear_data">Borrar datos</string>
+    
+    <string-array name="theme_array">
+        <item>Material Light</item>
+        <item>TYAM CUSTOM THEME</item>
+    </string-array>
+    
+</resources>
