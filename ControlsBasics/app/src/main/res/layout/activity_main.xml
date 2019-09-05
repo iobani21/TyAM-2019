@@ -11,23 +11,23 @@
         android:padding="10dp"
         tools:context=".MainActivity">
 
-       <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:padding="10dp">
+        <FrameLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_gravity="end"
+             android:padding="10dp">
 
-            <ImageView
-                android:src="@mipmap/ic_launcher_round"
+             <CalendarView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top|center" />
-
-            <CalendarView
-                android:layout_marginTop="64dp"
                 android:layout_gravity="bottom|center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_marginTop="64dp" />
+
+            <ImageView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="top|center"
+                 android:src="@mipmap/ic_launcher_round" />
 
         </FrameLayout>
 
@@ -89,10 +89,17 @@
         </TableLayout>
 
         <LinearLayout
+            android:orientation="vertical"
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
+
+            <Spinner
+                android:id="@+id/mySpiner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dialog" />
 
             <Button
                 android:id="@+id/myButtonSave"

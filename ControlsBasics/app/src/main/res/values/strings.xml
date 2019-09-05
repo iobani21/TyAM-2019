@@ -5,4 +5,7 @@
     <string name="name">Nombre</string>
     <string name="email">Correo:</string>
     <string name="phone">Telefono</string>
+
+
+
 </resources>
