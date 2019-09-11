@@ -52,6 +52,9 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
+        super.onCreate (savedInstanceState);
+        setContentView (R.layout.activity_main);
+
         Log.d (TAG, "CREATE");
 
         if (savedInstanceState != null && !savedInstanceState.isEmpty ()) {
@@ -60,20 +63,18 @@ public class MainActivity extends Activity {
             day = (int) savedInstanceState.get ("DAY");
             month = (int) savedInstanceState.get ("MONTH");
             year = (int) savedInstanceState.get ("YEAR");
-        }
+        } else {
 
-        // se inicializan las variables persistentes
+            // se inicializan las variables persistentes
 //        name = "MYNAME";
 //        phone = "MYPHONE";
 //        email = "MYEMAIL";
 //
-        Calendar calendar = Calendar.getInstance (TimeZone.getDefault ());
-        day = calendar.get (Calendar.DAY_OF_MONTH);
-        month = calendar.get (Calendar.MONTH);
-        year = calendar.get (Calendar.YEAR);
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+            Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+            day = calendar.get(Calendar.DAY_OF_MONTH);
+            month = calendar.get(Calendar.MONTH);
+            year = calendar.get(Calendar.YEAR);
+        }
 
         /***
          * fuente de datos (modelo)
