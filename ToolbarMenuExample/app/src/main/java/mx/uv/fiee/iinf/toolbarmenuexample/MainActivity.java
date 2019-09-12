@@ -39,12 +39,17 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId ()) {
             case R.id.item1:
                 Snackbar.make (tvContent, "Favorites clicked!", Snackbar.LENGTH_LONG).show ();
+                Intent intent = new Intent (getBaseContext (), SecondActivity.class);
+                startActivity (intent);
                 break;
             case R.id.item2:
                 Snackbar.make (tvContent, "Location clicked!", Snackbar.LENGTH_LONG).show ();
                 break;
             case R.id.item3:
                 Snackbar.make (tvContent, "Phone call clicked!", Snackbar.LENGTH_LONG).show ();
+                Intent intent1 = new Intent (Intent.ACTION_CALL);
+                intent1.setData (Uri.parse ("tel: 01800123000"));
+                startActivity (intent1);
                 break;
             case R.id.item4:
                 Snackbar.make (tvContent, "Calendar clicked!", Snackbar.LENGTH_LONG).show ();
