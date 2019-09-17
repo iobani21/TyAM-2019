@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.item2:
                 Snackbar.make (tvContent, "Location clicked!", Snackbar.LENGTH_LONG).show ();
+                startActivity (getIntent ());
                 break;
             case R.id.item3:
                 Snackbar.make (tvContent, "Phone call clicked!", Snackbar.LENGTH_LONG).show ();
