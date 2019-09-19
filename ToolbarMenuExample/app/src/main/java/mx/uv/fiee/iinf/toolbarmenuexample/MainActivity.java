@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -51,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
 //                Intent intent1 = new Intent (Intent.ACTION_CALL);
 //                intent1.setData (Uri.parse ("tel: 01800123000"));
 //                startActivity (intent1);
+
+                Intent intent3 = new Intent (this, ThirdActivity.class);
+                startActivityForResult (intent3, 1001);
                 break;
             case R.id.item4:
                 Snackbar.make (tvContent, "Calendar clicked!", Snackbar.LENGTH_LONG).show ();
@@ -58,5 +62,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected (item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1001) {
+            if (resultCode == RESULT_OK) {
+                if (data != null) {
+                    String name = data.getStringExtra ("name");
+                    Toast.makeText(this, name, Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+
     }
 }
