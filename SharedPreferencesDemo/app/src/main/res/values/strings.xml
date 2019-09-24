@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SharedPreferencesDemo</string>
+    <string name="logout">Logout</string>
+    <string name="username">Username (Enter \'test\')</string>
+    <string name="password">Password (Enter \'test\')</string>
+    <string name="login">Login</string>
+</resources>
