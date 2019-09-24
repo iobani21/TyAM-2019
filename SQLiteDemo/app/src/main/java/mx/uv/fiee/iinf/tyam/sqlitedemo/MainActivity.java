@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
             database.addContact (new Contact ("Felipe Marín", "24256572"));
             database.addContact (new Contact ("Abigail Zamora", "34243654"));
             database.addContact (new Contact ("Manuel Cartas", "456456457"));
+            database.addContact (new Contact ("David Velazquez", "456545657"));
+
         }
     }
 
