@@ -21,7 +21,7 @@ public class ContactsDatabase extends SQLiteOpenHelper {
     public static final String TAG = "CONTACTS_DBHELPER";
     private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "contactsManager";
-    private static final String TABLE_CONTACS = "contacts";
+    private static final String TABLE_CONTACTS = "contacts";
 
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
@@ -31,7 +31,7 @@ public class ContactsDatabase extends SQLiteOpenHelper {
     // CREATE TABLE contacts (id INTEGER PRIMARY KEY, name TEXT, phone TEXT)
     //
     private static String CREATE_CONTACS_TABLE =
-                    "CREATE TABLE " + TABLE_CONTACS +
+                    "CREATE TABLE " + TABLE_CONTACTS +
                     " (" +
                     KEY_ID + " INTEGER PRIMARY KEY, " +
                     KEY_NAME + " TEXT, " +
@@ -39,7 +39,7 @@ public class ContactsDatabase extends SQLiteOpenHelper {
                     ")";
 
 
-    private static String DROP_CONTACTS_TABLE = "DROP TABLE IF EXISTS " + TABLE_CONTACS;
+    private static String DROP_CONTACTS_TABLE = "DROP TABLE IF EXISTS " + TABLE_CONTACTS;
 
     public ContactsDatabase (Context context) {
         super (context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -68,7 +68,7 @@ public class ContactsDatabase extends SQLiteOpenHelper {
         values.put (KEY_NAME, contact.getName ());
         values.put (KEY_PHONE, contact.getPhone ());
 
-        db.insert (TABLE_CONTACS, null, values);
+        db.insert (TABLE_CONTACTS, null, values);
         db.close ();
     }
 
@@ -81,7 +81,7 @@ public class ContactsDatabase extends SQLiteOpenHelper {
         String selection = KEY_ID + "= ?";
         String [] selectionArgs = {String.valueOf (id)};
 
-        Cursor cursor = db.query (TABLE_CONTACS, columns, selection, selectionArgs, null, null, null);
+        Cursor cursor = db.query (TABLE_CONTACTS, columns, selection, selectionArgs, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst ();
 
@@ -98,7 +98,7 @@ public class ContactsDatabase extends SQLiteOpenHelper {
 
     public List<Contact> getAllContacts () {
         List<Contact> contactList = new ArrayList<> ();
-        String query = "SELECT * FROM " + TABLE_CONTACS;
+        String query = "SELECT * FROM " + TABLE_CONTACTS;
 
         SQLiteDatabase db = this.getReadableDatabase ();
         Cursor cursor = db.rawQuery (query, null);
@@ -121,7 +121,7 @@ public class ContactsDatabase extends SQLiteOpenHelper {
     }
 
     public int getContactsCount () {
-        String countQuery = "SELECT * FROM " + TABLE_CONTACS;
+        String countQuery = "SELECT * FROM " + TABLE_CONTACTS;
 
         SQLiteDatabase db = this.getReadableDatabase ();
         Cursor cursor = db.rawQuery (countQuery, null);
@@ -143,7 +143,7 @@ public class ContactsDatabase extends SQLiteOpenHelper {
         String whereClause = KEY_ID + " = ?";
         String [] whereArgs = {String.valueOf (contact.getId ())};
 
-        int result = db.update (TABLE_CONTACS, values, whereClause, whereArgs);
+        int result = db.update (TABLE_CONTACTS, values, whereClause, whereArgs);
 
         db.close ();
         return result;
@@ -154,7 +154,7 @@ public class ContactsDatabase extends SQLiteOpenHelper {
 
         String whereClause = KEY_ID + " = ?";
         String [] whereArgs = {String.valueOf (contact.getId ())};
-        db.delete (TABLE_CONTACS, whereClause, whereArgs);
+        db.delete (TABLE_CONTACTS, whereClause, whereArgs);
         db.close ();
     }
 
