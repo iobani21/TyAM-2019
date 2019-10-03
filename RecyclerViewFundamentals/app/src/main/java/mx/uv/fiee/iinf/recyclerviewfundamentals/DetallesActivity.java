@@ -26,7 +26,7 @@ public class DetallesActivity extends AppCompatActivity {
 
         getSupportFragmentManager ()
                 .beginTransaction ()
-                .add (R.id.contentDetalles, new DetallesFragment(position))
+                .add (R.id.contentDetalles, new DetallesFragment (position))
                 .setTransition (FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit ();
     }

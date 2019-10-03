@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentListado f = new  FragmentListado ();
         f.setOnPlanetSelectedListener (position -> {
-            FrameLayout layout = findViewById (R.id.container);
+            FrameLayout layout = findViewById (R.id.contentDetalles);
 
             if (layout != null) {
                 getSupportFragmentManager ()
@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
                         .setTransition (FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                         .commit ();
             } else {
-                Intent intent = new Intent (this, DetallesFragment.class);
+                Intent intent = new Intent (this, DetallesActivity.class);
+                intent.putExtra ("POSITION", position);
                 startActivity (intent);
             }
         });
