@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".DetallesActivity" />
+        <activity android:name=".DetallesActivity" android:screenOrientation="sensor" />
 
     </application>
 </manifest>

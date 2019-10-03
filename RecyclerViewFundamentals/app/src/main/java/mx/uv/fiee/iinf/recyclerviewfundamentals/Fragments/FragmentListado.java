@@ -33,6 +33,7 @@ public class FragmentListado extends Fragment {
     public void onActivityCreated (@Nullable Bundle savedInstanceState) {
         super.onActivityCreated (savedInstanceState);
 
+        // el método getActivity regresa una referencia a la actividad que hospeda al framento
         FragmentActivity activity = getActivity ();
         if (activity == null) return;
 
@@ -43,16 +44,28 @@ public class FragmentListado extends Fragment {
         if (recyclerView ==  null) return;
 
         recyclerView.setLayoutManager (new LinearLayoutManager(activity, RecyclerView.VERTICAL, false));
+
+        // se crea un objeto MyAdapter al que se pasan los parámetros necesarios
+        // context: la actividad que hospeda al fragmento
+        // List<Planets>: la lista con la información al mostrar
+        // OnPlanetSelected: el objeto listener mediante el cuál se invocará al manejador del evento planetSelected para los elementos de la lista
         recyclerView.setAdapter (new MyAdapter (activity, planets, this.listener));
     }
 
+    /**
+     *  Asigna al manejador del elemento seleccionad en la lista
+     * @param listener Objeto que implementa la interfaz OnPlanetSelected
+     */
     public void setOnPlanetSelectedListener (OnPlanetSelected listener) {
         this.listener = listener;
     }
 }
 
 /**
- * Adapter para iterar por la lista de planetas
+ * Adapter para iterar por la lista de planetas. La referencia a la función de cada método está explicada en la lamina
+ * que puede encotrarse en el contenido del curso.
+ *
+ *
  */
 class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private Context context;
@@ -75,15 +88,10 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
-        final String planet = planets.get (position);
-        holder.setData (planet);
-
-        holder.itemView.setOnClickListener (new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.planetSelected (position);
-            }
-        });
+        // se asigna la información en cada fila de la lista y se establece el manejador del evento OnClickListener,
+        // de modo que al seleccionarse se invoque al método planetSelected en el objeto que manejará dicho evento
+        holder.setData (planets.get (position));
+        holder.itemView.setOnClickListener (view -> listener.planetSelected (position));
     }
 
     @Override

@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             if (layout != null) {
                 getSupportFragmentManager ()
                         .beginTransaction ()
-                        .add (R.id.contentDetalles, new DetallesFragment (position))
+                        .replace (R.id.contentDetalles, new DetallesFragment (position))
                         .setTransition (FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                         .commit ();
             } else {

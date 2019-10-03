@@ -16,7 +16,21 @@ import mx.uv.fiee.iinf.recyclerviewfundamentals.R;
 public class DetallesFragment extends Fragment {
     private int position;
 
+    public DetallesFragment () {
+        super ();
+    }
+
+    /**
+     * Constructor no estándard que nos sirve para recibir el parámetro entero emdiante el cuál
+     * se obtendrá la información almacenada en los arrays.
+     *
+     * La documentación desaconseja modificar los constructores ya que son utilizados para persitir
+     * la información de los controles ante los cambios de estado. Se recomienda en su lugar usar el patrón de diseño factory.
+     *
+     * @param position indice del elemento seleccionado en la lista de planetas.
+     */
     public DetallesFragment (int position) {
+        super ();
         this.position = position;
     }
 
@@ -33,13 +47,15 @@ public class DetallesFragment extends Fragment {
         FragmentActivity activity = getActivity ();
         if (activity == null) return;
 
+        // la información mostrada depende de los arrays almacenados en los recursos
+        // y se obtiene mediante el parámetros position recibido en el constructor
         String [] detallesArray = getResources ().getStringArray (R.array.detalles);
         String [] planetsArray = getResources ().getStringArray (R.array.planets);
 
         TextView tvDetalles = activity.findViewById (R.id.tvDetalle);
-        tvDetalles.setText (detallesArray [position]);
+        if (tvDetalles != null) tvDetalles.setText (detallesArray [position]);
 
         TextView tvTitle = activity.findViewById (R.id.tvTitle);
-        tvTitle.setText (planetsArray [position]);
+        if (tvTitle != null) tvTitle.setText (planetsArray [position]);
     }
 }
