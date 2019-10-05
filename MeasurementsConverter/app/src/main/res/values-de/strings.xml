@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Messumformer</string>
+    <string name="actionClean">Aufräumen</string>
+    <string name="actionConvert">Konvertieren</string>
+    <string name="destino">Ergebnis</string>
+    <string name="optAcceleration">Beschleunigung</string>
+    <string name="optArea">Oberfläche</string>
+    <string name="optLongitude">Länge</string>
+    <string name="optTempature">Temperatur</string>
+    <string name="optVolume">Menge</string>
+    <string name="optWeight">Gewicht</string>
+    <string name="origen">Initial</string>
+    <string name="idioma">" Sprache"</string>
+    <string name="decimales">Dezimalstellen</string>
+    <string name="temas">Themen</string>
+    <string name="dialogInfo">Einstellung angewendet</string>
+    <string name="dialogMessage">Sie müssen die Änderungen dauerhaft speichern. Einige Einstellungen erfordern einen Neustart der App</string>
+    <string name="deLang">Deutsch</string>
+    <string name="enLang">Englisch</string>
+    <string name="frLang">Französisch</string>
+    <string name="spLang">Spanisch</string>
+    <string name="themeGreens">Grün</string>
+    <string name="themeBlues">Blues</string>
+    <string name="themeDefault">Standard</string>
+    <string name="fahrenheitcelsius">Fahrenheit > Celsius</string>
+    <string name="galonsliters">Gallonen > Liter</string>
+    <string name="gramsounces">Gramm > Unzen</string>
+    <string name="hectaresm2">Hektar > Quadratmeter</string>
+    <string name="kilometersmiles">Kilometer > Meilen</string>
+    <string name="kilospounds">Kilo > Pfund</string>
+    <string name="kmhmileshour">KM/H > Meilen/H</string>
+    <string name="litersgalons">Liter > Gallonen</string>
+    <string name="metersyards">Meter > Yards</string>
+    <string name="mileskilometers">Meilen > Kilometer</string>
+    <string name="mileshourkmh">Meilen/H > KM/H</string>
+    <string name="ouncesgrams">Unzen > Gramm</string>
+    <string name="poundskilos">Pfund > Kilo</string>
+    <string name="selecction">Wählen Sie</string>
+    <string name="m2hectares">Quadratmeter > Hektar</string>
+    <string name="yardsmeters">Yards > Meter</string>
+    <string name="celsiusfahrenheit">Celsius > Fahrenheit</string>
+</resources>

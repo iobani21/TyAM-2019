@@ -1,0 +1,95 @@
+<resources>
+    <string name="app_name">Conversor de Medidas</string>
+    <string name="origen">Inicial</string>
+    <string name="destino">Resultado</string>
+    <string name="optTempature">Temperatura</string>
+    <string name="optLongitude">Longitud</string>
+    <string name="optVolume">Volumen</string>
+    <string name="optAcceleration">Acelaración</string>
+    <string name="optWeight">Peso</string>
+    <string name="optArea">Area</string>
+    <string name="actionConvert">Convertir</string>
+    <string name="actionClean">Limpiar</string>
+    <string name="idioma">Idioma</string>
+    <string name="decimales">Decimales</string>
+    <string name="temas">Temas</string>
+    <string name="dialogInfo">Ajuste aplicado</string>
+    <string name="dialogMessage">Debe guardar los cambios para que sean permanentes. Algunos requieren reinicar la app para completarse</string>
+    <string name="spLang">Español</string>
+    <string name="enLang">Inglés</string>
+    <string name="frLang">Francés</string>
+    <string name="deLang">Alemán</string>
+    <string name="themeDefault">Predeterminado</string>
+    <string name="themeGreens">Verdes</string>
+    <string name="themeBlues">Azules</string>
+    <string name="celsiusfahrenheit">Celsius > Fahrenheit</string>
+    <string name="fahrenheitcelsius">Fahrenheit > Celsius</string>
+    <string name="metersyards">Metros > Yardas</string>
+    <string name="yardsmeters">Yardas > Metros</string>
+    <string name="kilometersmiles">Kilometros > Millas</string>
+    <string name="mileskilometers">Millas > Kilometros</string>
+    <string name="galonsliters">Galones (US) > Litros</string>
+    <string name="litersgalons">Litros > Galones (US)</string>
+    <string name="mileshourkmh">Millas/H > KM/H</string>
+    <string name="kmhmileshour">KM/H > Millas/H</string>
+    <string name="poundskilos">Libras > Kilos</string>
+    <string name="kilospounds">Kilos > Libras</string>
+    <string name="gramsounces">Gramos > Onzas</string>
+    <string name="ouncesgrams">Onzas > Gramos</string>
+    <string name="hectaresm2">Hectáreas > Metros Cuadrados</string>
+    <string name="m2hectares">Metros Cuadrados</string>
+    <string name="selecction">Seleccionar</string>
+
+    <string-array name="languages">
+        <item name="sp">@string/spLang</item>
+        <item name="en">@string/enLang</item>
+        <item name="fr">@string/frLang</item>
+        <item name="de">@string/deLang</item>
+    </string-array>
+
+    <string-array name="themes">
+        <item name="default">@string/themeDefault</item>
+        <item name="green">@string/themeGreens</item>
+        <item name="blues">@string/themeBlues</item>
+    </string-array>
+
+    <string-array name="decimals">
+        <item name="oneDecimal">1</item>
+        <item name="twoDecimal">2</item>
+        <item name="threeDecimal">3</item>
+    </string-array>
+
+    <string-array name="temperature">
+        <item name="c1">@string/celsiusfahrenheit</item>
+        <item name="c2">@string/fahrenheitcelsius</item>
+    </string-array>
+
+    <string-array name="longitude">
+        <item name="c1">@string/metersyards</item>
+        <item name="c2">@string/yardsmeters</item>
+        <item name="c3">@string/kilometersmiles</item>
+        <item name="c4">@string/mileskilometers</item>
+    </string-array>
+
+    <string-array name="volume">
+        <item name="c1">@string/litersgalons</item>
+        <item name="c2">@string/galonsliters</item>
+    </string-array>
+
+    <string-array name="acceleration">
+        <item name="c1">@string/kmhmileshour</item>
+        <item name="c2">@string/mileshourkmh</item>
+    </string-array>
+
+    <string-array name="weight">
+        <item name="c1">@string/kilospounds</item>
+        <item name="c2">@string/poundskilos</item>
+        <item name="c3">@string/ouncesgrams</item>
+        <item name="c4">@string/gramsounces</item>
+    </string-array>
+
+    <string-array name="area">
+        <item name="c1">@string/hectaresm2</item>
+        <item name="c2">@string/m2hectares</item>
+    </string-array>
+</resources>

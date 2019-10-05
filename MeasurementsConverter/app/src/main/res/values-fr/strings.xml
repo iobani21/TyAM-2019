@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Convertisseur de Mesure</string>
+    <string name="actionClean">Nettoyer</string>
+    <string name="actionConvert">Convertir</string>
+    <string name="destino">Résultat</string>
+    <string name="optAcceleration">Accélération</string>
+    <string name="optVolume">Quantité</string>
+    <string name="optLongitude">Longueur</string>
+    <string name="optTempature">Température</string>
+    <string name="optArea">Surface</string>
+    <string name="optWeight">Poids</string>
+    <string name="origen">Initiale</string>
+    <string name="idioma">langage</string>
+    <string name="decimales">Décimales</string>
+    <string name="temas">Thèmes</string>
+    <string name="dialogInfo">Paramètre appliqué</string>
+    <string name="dialogMessage">Vous devez enregistrer les modifications pour qu\'elles soient permanentes. Certains paramètres nécessitent que l\'application redémarre</string>
+    <string name="enLang">Anglais</string>
+    <string name="frLang">Français</string>
+    <string name="spLang">Espagnol</string>
+    <string name="deLang">Allemand</string>
+    <string name="themeBlues">Blues</string>
+    <string name="themeDefault">Défaut</string>
+    <string name="themeGreens">Vert</string>
+    <string name="fahrenheitcelsius">Fahrenheit > Celsius</string>
+    <string name="galonsliters">Gallons > Litres</string>
+    <string name="gramsounces">Grammes > Onces</string>
+    <string name="hectaresm2">Hectares > Mètres Carrés</string>
+    <string name="kilometersmiles">Kilomètres > Miles</string>
+    <string name="kilospounds">Kilos > Livres</string>
+    <string name="kmhmileshour">KM/H > Miles/H</string>
+    <string name="litersgalons">Litres > Gallons (US)</string>
+    <string name="metersyards">Mètres > Verges</string>
+    <string name="mileskilometers">Miles > Kilomètres</string>
+    <string name="mileshourkmh">Miles/H > KM/H</string>
+    <string name="ouncesgrams">Onces > Grammes</string>
+    <string name="poundskilos">livres > Kilos</string>
+    <string name="selecction">Choisir</string>
+    <string name="m2hectares">Mètres Carrés > Hectares</string>
+    <string name="yardsmeters">Verges > Mètres</string>
+    <string name="celsiusfahrenheit">Celsius > Fahrenheit</string>
+</resources>
