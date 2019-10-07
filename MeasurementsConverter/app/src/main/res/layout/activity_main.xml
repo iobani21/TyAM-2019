@@ -53,6 +53,7 @@
                 android:hint="@string/destino"
                 android:textSize="@dimen/edittext_text_size_base"
                 android:maxLines="1"
+                android:enabled="false"
                 tools:ignore="Autofill" />
 
         </LinearLayout>

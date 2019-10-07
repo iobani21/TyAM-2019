@@ -6,7 +6,6 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.animation.Animation;
@@ -14,18 +13,14 @@ import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Locale;
@@ -170,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
 
             // a partir del id del radiobutton seleccionado se obtiene el texto que servirá para ubicar la operación dentro de las colecciones
             //String itemSelected = ((RadioButton) findViewById (convertSelected)).getText ().toString ();
-            String itemSelected = spOperation.getSelectedItem().toString ();
+            String itemSelected = spOperation.getSelectedItem ().toString ();
 
             // dependiendo el radiobutton seleccionado se invoca al método calcular
             switch (convertSelected) {
@@ -403,12 +398,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult (int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == Utils.REQUEST_CODE_SETTINGS) {
             if (resultCode == RESULT_OK) {
                 recreate ();
             }
         }
+
+        Utils.decimalsSeletected = -1;
+        Utils.themeSelected = -1;
+        Utils.localeSelected = null;
+
         super.onActivityResult(requestCode, resultCode, data);
     }
 }

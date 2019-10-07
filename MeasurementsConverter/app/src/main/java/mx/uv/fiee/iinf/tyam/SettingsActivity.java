@@ -5,7 +5,6 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +15,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -25,7 +23,7 @@ import java.util.Locale;
 public class SettingsActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate (@Nullable Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         defineLanguage ();
         defineTheme ();
@@ -34,9 +32,9 @@ public class SettingsActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById (R.id.toolbar);
         setSupportActionBar (toolbar);
 
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setHomeButtonEnabled (true);
-            getSupportActionBar().setDisplayHomeAsUpEnabled (true);
+        if (getSupportActionBar () != null) {
+            getSupportActionBar ().setHomeButtonEnabled (true);
+            getSupportActionBar ().setDisplayHomeAsUpEnabled (true);
         }
 
         Spinner spLanguages = findViewById (R.id.spLanguage);
@@ -77,10 +75,11 @@ public class SettingsActivity extends AppCompatActivity {
                 }
 
                 showMessageInfo ();
+                recreate ();
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {}
+            public void onNothingSelected (AdapterView<?> adapterView) {}
         });
 
 
@@ -89,8 +88,7 @@ public class SettingsActivity extends AppCompatActivity {
         spDecimals.setOnItemSelectedListener (new AdapterView.OnItemSelectedListener () {
             @Override
             public void onItemSelected (AdapterView<?> adapterView, View view, int i, long l) {
-                if (i == 0) return;
-                if (i == Utils.decimalsSeletected) return;
+                if (i == Utils.decimalsSeletected - 1) return;
 
                 Utils.decimalsSeletected = Integer.parseInt (adapterView.getSelectedItem ().toString ());
 
@@ -98,7 +96,7 @@ public class SettingsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {}
+            public void onNothingSelected (AdapterView<?> adapterView) {}
         });
 
         Spinner spThemes = findViewById (R.id.spThemes);
@@ -155,8 +153,8 @@ public class SettingsActivity extends AppCompatActivity {
     void defineTheme () {
         if (Utils.themeSelected == -1) {
             SharedPreferences preferences = getSharedPreferences(Utils.SHARED_PREFERENCES_NAME, MODE_PRIVATE);
-            if (preferences.contains("THEME")) {
-                Utils.themeSelected = preferences.getInt("THEME", 0);
+            if (preferences.contains (Utils.SHARED_PREFERENCES_THEME_KEY)) {
+                Utils.themeSelected = preferences.getInt (Utils.SHARED_PREFERENCES_THEME_KEY, 0);
             }
         }
 
@@ -181,9 +179,9 @@ public class SettingsActivity extends AppCompatActivity {
             Locale.setDefault (Utils.localeSelected);
             configuration.locale = Utils.localeSelected;
         } else {
-            SharedPreferences preferences = getSharedPreferences ("PKAT", MODE_PRIVATE);
-            if (preferences.contains ("LANGUAGE")) {
-                String language = preferences.getString("LANGUAGE", "");
+            SharedPreferences preferences = getSharedPreferences (Utils.SHARED_PREFERENCES_NAME, MODE_PRIVATE);
+            if (preferences.contains (Utils.SHARED_PREFERENCES_LANGUAGE_KEY)) {
+                String language = preferences.getString(Utils.SHARED_PREFERENCES_LANGUAGE_KEY, "");
                 Locale baseLocale;
 
                 switch (language) {
@@ -230,7 +228,14 @@ public class SettingsActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences ( Utils.SHARED_PREFERENCES_NAME, MODE_PRIVATE);
         if (preferences.contains (Utils.SHARED_PREFERENCES_DECIMALS_KEY)) {
             int foo = preferences.getInt (Utils.SHARED_PREFERENCES_DECIMALS_KEY, 0);
-            spDecimals.setSelection ((int) foo, true);
+            int bar = 0;
+
+            for (int i = 0; i < decimals.length; i++) {
+                if (decimals [i].equals (String.valueOf (foo))) bar = i;
+            }
+
+            spDecimals.setSelection (bar, true);
+            Utils.decimalsSeletected = foo;
         }
     }
 

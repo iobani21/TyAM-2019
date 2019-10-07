@@ -33,9 +33,9 @@ public class AboutActivity extends AppCompatActivity {
     }
 
     void defineTheme () {
-        SharedPreferences preferences = getSharedPreferences ("PKAT", MODE_PRIVATE);
-        if (preferences.contains ("THEME")) {
-            int theme = preferences.getInt ("THEME", 0);
+        SharedPreferences preferences = getSharedPreferences (Utils.SHARED_PREFERENCES_NAME, MODE_PRIVATE);
+        if (preferences.contains (Utils.SHARED_PREFERENCES_THEME_KEY)) {
+            int theme = preferences.getInt (Utils.SHARED_PREFERENCES_THEME_KEY, 0);
             switch (theme) {
                 case 1:
                     setTheme (R.style.GREENS_THEME);
@@ -51,23 +51,23 @@ public class AboutActivity extends AppCompatActivity {
     }
 
     void defineLanguage () {
-        SharedPreferences preferences = getSharedPreferences ("PKAT", MODE_PRIVATE);
-        if (preferences.contains ("LANGUAGE")) {
-            String language =  preferences.getString ("LANGUAGE", "");
+        SharedPreferences preferences = getSharedPreferences (Utils.SHARED_PREFERENCES_NAME, MODE_PRIVATE);
+        if (preferences.contains (Utils.SHARED_PREFERENCES_LANGUAGE_KEY)) {
+            String language =  preferences.getString (Utils.SHARED_PREFERENCES_LANGUAGE_KEY, "");
             Locale baseLocale;
 
             switch (language) {
-                case "fr":
-                    baseLocale = new Locale ("fr");
+                case Utils.LOCALE_LANGUAGE_FRENCH:
+                    baseLocale = new Locale (Utils.LOCALE_LANGUAGE_FRENCH);
                     break;
-                case "en":
-                    baseLocale = new Locale ("en");
+                case Utils.LOCALE_LANGUAGE_ENGLISH:
+                    baseLocale = new Locale (Utils.LOCALE_LANGUAGE_ENGLISH);
                     break;
-                case "de":
-                    baseLocale = new Locale ("de");
+                case Utils.LOCALE_LANGUAGE_GERMAN:
+                    baseLocale = new Locale (Utils.LOCALE_LANGUAGE_GERMAN);
                     break;
                 default:
-                    baseLocale = new Locale ("sp");
+                    baseLocale = new Locale (Utils.LOCALE_LANGUAGE_SPANISH);
                     break;
             }
 
@@ -82,7 +82,7 @@ public class AboutActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected (@NonNull MenuItem item) {
         if (item.getItemId () == android.R.id.home) {
             finish ();
         }

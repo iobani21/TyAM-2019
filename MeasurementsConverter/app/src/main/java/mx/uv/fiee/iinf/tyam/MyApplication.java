@@ -20,16 +20,16 @@ public class MyApplication extends Application {
 
             switch (language) {
                 case "fr":
-                    baseLocale = new Locale ("fr");
+                    baseLocale = new Locale (Utils.LOCALE_LANGUAGE_FRENCH);
                     break;
                 case "en":
-                    baseLocale = new Locale ("en");
+                    baseLocale = new Locale (Utils.LOCALE_LANGUAGE_ENGLISH);
                     break;
                 case "de":
-                    baseLocale = new Locale ("de");
+                    baseLocale = new Locale (Utils.LOCALE_LANGUAGE_GERMAN);
                     break;
                 default:
-                    baseLocale = new Locale ("sp");
+                    baseLocale = new Locale (Utils.LOCALE_LANGUAGE_SPANISH);
                     break;
             }
 
