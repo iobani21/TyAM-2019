@@ -64,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
     void NavViewItemSelected (MenuItem menuItem) {
         switch (menuItem.getItemId ()) {
             case R.id.nav_first_fragment:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace (R.id.flContainer, new NumbersFragment())
+                        .commit ();
                 break;
             case R.id.nav_second_fragment:
                 break;

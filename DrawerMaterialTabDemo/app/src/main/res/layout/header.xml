@@ -3,14 +3,19 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:background="?attr/colorPrimaryDark"
-    android:layout_height="192dp"
+    android:layout_height="200dp"
     android:padding="16dp"
     android:gravity="bottom">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@mipmap/ic_launcher_round" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Perla Karina Avendaño Trinidad"
+        android:text="Tecnologías y aplicaciones móviles"
         android:textColor="@android:color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
