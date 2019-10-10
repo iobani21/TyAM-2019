@@ -17,4 +17,6 @@
   
 **RecyclerView & Fragments**
   * [RecyclerViewFundamentals](https://github.com/facingii/TyAM-2019/tree/master/RecyclerViewFundamentals)
+  * [Memegrafia](https://github.com/facingii/TyAM-2019/tree/master/Memegrafia)
+  * [DrawerMaterialTabDemo](https://github.com/facingii/TyAM-2019/tree/master/DrawerMaterialTabDemo)	
 
