@@ -2,7 +2,9 @@ package mx.uv.fiee.iinf.rssfeedsfetcher;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -26,11 +28,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView (R.layout.activity_main);
 
         TextView rssFeed = findViewById (R.id.rssfeed);
+        ImageView imageView = findViewById (R.id.imageView);
 
-        String rss = downloadRSS ("https://www.nasa.gov/rss/dyn/lg_image_of_the_day.rss");
+        new RSSAsync (imageView).execute ( "https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/flying_004_0.jpg");
 
-        if (rss != null) {
-            rssFeed.setText(rss);
+    }
+
+    class RSSAsync extends AsyncTask<String, Void, Bitmap> {
+
+        ImageView imageView;
+
+        public RSSAsync (ImageView imageView) {
+            this.imageView = imageView;
+        }
+
+        @Override
+        protected void onPostExecute (Bitmap bitmap) {
+            super.onPostExecute(bitmap);
+            imageView.setImageBitmap (bitmap);
+        }
+
+        @Override
+        protected Bitmap doInBackground(String... strings) {
+            return downloadImage (strings [0]);
         }
     }
 

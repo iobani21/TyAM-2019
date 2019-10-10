@@ -8,11 +8,13 @@
         android:id="@+id/rssfeed"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
         android:textAppearance="@android:style/TextAppearance.Material.Body1" />
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone" />
+        android:visibility="visible" />
 
 </LinearLayout>
