@@ -38,6 +38,12 @@ public class TabsActivity extends AppCompatActivity {
         NumbersFragment numbers = new NumbersFragment ();
         adapter.setFragment (numbers, "Page 1");
 
+        NumbersFragment numbers2 = new NumbersFragment ();
+        adapter.setFragment (numbers2, "Page 2");
+
+        NumbersFragment numbers3 = new NumbersFragment ();
+        adapter.setFragment (numbers3, "Page 3");
+
         viewPager.setAdapter (adapter);
     }
 }
