@@ -4,11 +4,16 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -16,9 +21,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.StringReader;
+import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.LinkedList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,31 +35,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_main);
 
-        TextView rssFeed = findViewById (R.id.rssfeed);
-        ImageView imageView = findViewById (R.id.imageView);
+        TextView tvRssFeed = findViewById (R.id.tvRssfeed);
+        ImageView ivPicture = findViewById (R.id.ivPicture);
 
-        new RSSAsync (imageView).execute ( "https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/flying_004_0.jpg");
+        new GetRSSAsyncTask (tvRssFeed).execute ("https://www.nasa.gov/rss/dyn/lg_image_of_the_day.rss");
+        new GetImageAsyncTask (ivPicture).execute ( "https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/flying_004_0.jpg");
+    }
+}
 
+
+class GetRSSAsyncTask extends AsyncTask<String, Void, String> {
+    private WeakReference<TextView> tvRssFeed; //previene fugas de memoria
+
+    GetRSSAsyncTask (TextView tvRssFeed) {
+        this.tvRssFeed = new WeakReference<> (tvRssFeed);
     }
 
-    class RSSAsync extends AsyncTask<String, Void, Bitmap> {
+    @Override
+    protected void onPostExecute (String s) {
+        super.onPostExecute (s);
+        tvRssFeed.get().setText (s);
+    }
 
-        ImageView imageView;
-
-        public RSSAsync (ImageView imageView) {
-            this.imageView = imageView;
-        }
-
-        @Override
-        protected void onPostExecute (Bitmap bitmap) {
-            super.onPostExecute(bitmap);
-            imageView.setImageBitmap (bitmap);
-        }
-
-        @Override
-        protected Bitmap doInBackground(String... strings) {
-            return downloadImage (strings [0]);
-        }
+    @Override
+    protected String doInBackground (String... strings) {
+        return downloadRSS (strings [0]);
     }
 
     private String downloadRSS (String uri) {
@@ -84,6 +92,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return foo;
+    }
+}
+
+class GetImageAsyncTask extends AsyncTask<String, Void, Bitmap> {
+    private WeakReference<ImageView> imageView;
+
+    GetImageAsyncTask (ImageView imageView) {
+        this.imageView = new WeakReference<>(imageView);
+    }
+
+    @Override
+    protected void onPostExecute (Bitmap bitmap) {
+        super.onPostExecute(bitmap);
+        imageView.get().setImageBitmap (bitmap);
+    }
+
+    @Override
+    protected Bitmap doInBackground(String... strings) {
+        return downloadImage (strings [0]);
     }
 
     private Bitmap downloadImage (String uri) {
@@ -119,5 +146,4 @@ public class MainActivity extends AppCompatActivity {
         return foo;
     }
 }
-
 

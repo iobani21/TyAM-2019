@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    android:padding="5dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/rssfeed"
+        android:id="@+id/tvRssfeed"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
         android:textAppearance="@android:style/TextAppearance.Material.Body1" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivPicture"
+        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         android:visibility="visible" />
 
 </LinearLayout>
